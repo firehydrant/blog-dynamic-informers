@@ -64,6 +64,7 @@ func startWatching(stopCh <-chan struct{}, s cache.SharedIndexInformer) {
 	handlers := cache.ResourceEventHandlerFuncs{
 		AddFunc: func(obj interface{}) {
 			u := obj.(*unstructured.Unstructured)
+
 			logrus.WithFields(logrus.Fields{
 				"name":      u.GetName(),
 				"namespace": u.GetNamespace(),
